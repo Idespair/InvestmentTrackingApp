@@ -15,13 +15,7 @@ def query_stock(stock):
         soup = BeautifulSoup(response.text, 'html.parser')
 
     #Tries to find the stock's price and currency through their classes and return price + currency
-        try:
-            stock = soup.find('span', {'class': 'IsqQVc NprOob wT3VGc'}).text
-            currency = soup.find('span', {'class': 'knFDje'}).text
-            return stock + currency
-        except AttributeError:
-            return "Error: Could not find stock price"
-    
-    else:
-        return "Error: Could not retrieve data"
+        stock = soup.find('span', {'class': 'IsqQVc NprOob wT3VGc'}).text
+        currency = soup.find('span', {'class': 'knFDje'}).text
+        return stock + currency
 #User selects a stock and the value the function is called with said value attributed to it
